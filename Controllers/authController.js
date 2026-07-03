@@ -121,15 +121,15 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 
   // Check if user exists
-  const user = await User.findOne({ email }).select("+password +nationalID");
-  if (!user) {
+  const FindUser = await User.findOne({ email }).select("+password +nationalID");
+  if (!FindUser) {
     res.status(401);
     throw new Error("Invalid credentials");
   }
 
   // Check password
-  const isPasswordMatch = await bcrypt.compare(password, user.password);
-  if (!isPasswordMatch) {
+  const IsPasswordMatch = await bcrypt.compare(password, user.password);
+  if (!IsPasswordMatch) {
     res.status(401);
     throw new Error("Invalid credentials");
   }

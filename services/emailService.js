@@ -42,7 +42,7 @@ Renturn Team`,
   } catch (error) {
     console.error(
       "Error sending password reset email:",
-      error.response?.body || error.message
+      error.response?.body || error.message,
     );
     throw new Error("Failed to send password reset email");
   }
